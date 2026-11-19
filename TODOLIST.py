@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from tkinter import ttk, messagebox
 import json
@@ -6,8 +5,6 @@ import os
 from datetime import date
 
 FILE = "tasks.json"
-
-
 class TodoApp:
 
     def __init__(self, root):
@@ -36,8 +33,6 @@ class TodoApp:
             json.dump(self.tasks, f, indent=4)
 
     def create_widgets(self):
-
-        # Header
         header = tk.Frame(self.root, bg="#243B55", height=90)
         header.pack(fill="x")
 
@@ -49,11 +44,9 @@ class TodoApp:
             fg="white"
         ).pack(pady=25)
 
-        # Main container
         main = tk.Frame(self.root, bg="#F4F6FA")
         main.pack(fill="both", expand=True, padx=25, pady=20)
 
-        # Task input section
         form = tk.LabelFrame(
             main,
             text=" Add New Task ",
@@ -101,7 +94,6 @@ class TodoApp:
             width=15
         ).grid(row=1, column=3, padx=5)
 
-        # Search
         search_frame = tk.Frame(main, bg="#F4F6FA")
         search_frame.pack(fill="x", pady=10)
 
@@ -118,7 +110,6 @@ class TodoApp:
             "<KeyRelease>", lambda event: self.refresh_tasks()
         )
 
-        # Task table
         table_frame = tk.Frame(main, bg="white")
         table_frame.pack(fill="both", expand=True)
 
@@ -151,7 +142,6 @@ class TodoApp:
         self.tree.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
-        # Buttons
         buttons = tk.Frame(main, bg="#F4F6FA")
         buttons.pack(fill="x", pady=15)
 
@@ -173,7 +163,6 @@ class TodoApp:
                 font=("Arial", 10, "bold")
             ).pack(side="left", padx=8)
 
-        # Statistics
         self.stats = tk.Label(
             main,
             text="",
